@@ -8,3 +8,6 @@
 [submodule "fonts"]
 	path = fonts
 	url = https://github.com/powerline/fonts.git
+[submodule "i3/i3scripts"]
+	path = i3/i3scripts
+	url = https://github.com/vivien/i3blocks-contrib.git

@@ -1,0 +1,123 @@
+# For the benefit of emacs users: -*- shell-script -*-
+#
+#  _ _____ _     _            _
+# (_)___ /| |__ | | ___   ___| | _____
+# | | |_ \| '_ \| |/ _ \ / __| |/ / __|
+# | |___) | |_) | | (_) | (__|   <\__ \
+# |_|____/|_.__/|_|\___/ \___|_|\_\___/
+
+align=center
+separator=false
+color=#f8f8f2
+separator_block_width=15
+markup=pango
+
+[kbdd_layout]
+command=/home/chris/.i3/i3scripts/kbdd_layout/kbdd_layout
+interval=persist
+
+[battery2]
+command=/home/chris/.i3/i3scripts/battery2/battery2
+markup=pango
+interval=30
+
+[kubernetes]
+command=/home/chris/.i3/i3scripts/kubernetes/kubernetes
+interval=10
+
+[volume-pulseaudio]
+command=/home/chris/.i3/i3scripts/volume-pulseaudio/volume-pulseaudio
+interval=once
+signal=1
+#MIXER=[determined automatically]
+#SCONTROL=[determined automatically]
+##exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
+#LONG_FORMAT="${SYMB} ${VOL}% [${INDEX}:${NAME}]"
+#SHORT_FORMAT="${SYMB} ${VOL}% [${INDEX}]"
+#AUDIO_HIGH_SYMBOL='  '
+#AUDIO_MED_THRESH=50
+#AUDIO_MED_SYMBOL='  '
+#AUDIO_LOW_THRESH=0
+#AUDIO_LOW_SYMBOL='  '
+#AUDIO_DELTA=5
+#DEFAULT_COLOR="#ffffff"
+#MUTED_COLOR="#a0a0a0"
+#USE_ALSA_NAME=0
+#USE_DESCRIPTION=0
+## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
+#SUBSCRIBE=0
+
+[wifi]
+command=iwgetid -r | tr '\n' ' ' && grep $(iwgetid -m | awk '{ printf "%s", $1 }') /proc/net/wireless | awk '{ printf "%i%\n", int($3 * 100 / 70) }'
+instance=wlp2s0
+interval=5
+label=<span color="#ff79c6"> </span>
+border=#ff79c6
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+# [mediaplayer]
+# command=playerctl metadata --format "{{ artist }} <span color=\"#bd93f9\">-</span> {{ title }}"
+# interval=2
+# label=<span color="#bd93f9"> </span>
+# border=#bd93f9
+# border_top=1
+# border_right=0
+# border_bottom=0
+# border_left=0
+
+[home]
+command=df -h /home | awk 'FNR==2 { gsub(/[A-Za-z]/, ""); printf "%i<span color=\"#50fa7b\">GiB</span>\n", $4 }'
+interval=3
+label=<span color="#50fa7b"> </span>
+border=#50fa7b
+border_top=0
+border_right=0
+border_bottom=0
+border_left=0
+
+[cpu_stats]
+command=/home/chris/.i3/i3scripts/cpu_usage/cpu_usage
+interval=10
+label=<span color="#ff5555"><b>CPU: </b></span>
+border=#ff5555
+border_top=0
+border_right=0
+border_bottom=0
+border_left=0
+
+[memory]
+command=free --giga | awk 'FNR==2{ printf "%i<span color=\"#ff79c6\">GiB</span>\n", $7 }'
+interval=2
+label=<span color="#ff79c6"> </span>
+border=#ff79c6
+border_top=0
+border_right=0
+border_bottom=0
+border_left=0
+
+[volume]
+command=pulseaudio-ctl full-status | awk '{ printf "%i<span color=\"#bd93f9\">%</span>\n", $1 }'
+interval=1
+label=<span color="#bd93f9"> </span>
+border=#bd93f9
+border_top=0
+border_right=0
+border_bottom=0
+border_left=0
+
+[time_utc1]
+command=TZ=":Europe/Berlin" date '+%I : %M %Z' | awk '{ printf "%s<span color=\"#8be9fd\">%s</span>%s<span color=\"#8be9fd\"> %s</span>\n", $1, $2, $3, $4 }'
+interval=1
+label=<span color="#8be9fd"> </span>
+border=#8be9fd
+border_top=0
+border_right=0
+border_bottom=0
+border_left=0
+
+[rofi-calendar]
+command=/home/chris/.i3/i3scripts/rofi-calendar/rofi-calendar
+interval=3600
