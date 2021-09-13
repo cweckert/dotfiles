@@ -1,5 +1,21 @@
 #!/bin/bash
 
+RUSTDIR="$HOME/.rustup"
+if [ ! -d "$RUSTDIR"]; then
+    echo 'Installing rustup'
+    /bin/sh -c "$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs)"
+else
+    echo 'Rustup already installed'
+fi
+
+NVMDIR="$HOME/.nvm"
+if [ ! -d "$NVMDIR"]; then
+    echo 'Installing nvm'
+    /bin/sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh)"
+else
+    echo 'NVM already installed'
+fi
+
 # Check if oh-my-zsh is installed
 OMZDIR="$HOME/.oh-my-zsh"
 if [ ! -d "$OMZDIR" ]; then

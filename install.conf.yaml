@@ -25,3 +25,4 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [sh preinstall.sh]
+  - [sh fonts/install.sh, Installing Powerline fonts]
