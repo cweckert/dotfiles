@@ -70,7 +70,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(battery cargo command-not-found docker git golang helm history kubectl minikube rust tmux)
+plugins=(battery cargo command-not-found docker git golang helm history kubectl minikube npm npx nvm rust tmux)
 
 source $ZSH/oh-my-zsh.sh
 

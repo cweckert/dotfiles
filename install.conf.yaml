@@ -5,14 +5,23 @@
 - clean: ['~']
 
 - link:
-    ~/.emacs.d: emacs.d
+    ~/.config/:
+      glob: true
+      path: config/*
+    ~/.emacs.d/:
+      glob: true
+      path: emacs.d/*
+    ~/.i3/:
+      glob: true
+      path: i3/*
     ~/.spacemacs: spacemacs
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
 
-- create:
-    - ~/downloads
-    - ~/.vim/undo-history
+# - create:
+#     - ~/downloads
+#     - ~/.vim/undo-history
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - [sh preinstall.sh]
