@@ -1,3 +1,10 @@
 [submodule ".i3/i3scripts"]
 	path = .i3/i3scripts
 	url = https://github.com/vivien/i3blocks-contrib.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+[submodule "emacs.d"]
+	path = emacs.d
+	url = https://github.com/syl20bnr/spacemacs
