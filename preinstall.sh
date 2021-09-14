@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RUSTDIR="$HOME/.rustup"
-if [ ! -d "$RUSTDIR"]; then
+if [ ! -d "$RUSTDIR" ]; then
     echo 'Installing rustup'
     /bin/sh -c "$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs)"
 else
@@ -9,12 +9,18 @@ else
 fi
 
 NVMDIR="$HOME/.nvm"
-if [ ! -d "$NVMDIR"]; then
+if [ ! -d "$NVMDIR" ]; then
     echo 'Installing nvm'
     /bin/sh -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh)"
 else
     echo 'NVM already installed'
 fi
+
+echo 'Install latest kubectl'
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+mkdir -p ~/.local/bin/kubectl
+mv ./kubectl ~/.local/bin/kubectl
 
 # Check if oh-my-zsh is installed
 OMZDIR="$HOME/.oh-my-zsh"
@@ -27,7 +33,7 @@ else
 fi
 
 # Change default shell
-if [! $0 = "-zsh"]; then
+if [ ! $0 = "-zsh" ]; then
     echo 'Changing default shell to zsh'
     chsh -s /bin/zsh
 else
