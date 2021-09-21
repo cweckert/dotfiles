@@ -18,7 +18,9 @@
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
 
-# - create:
+- create:
+    - ~/.ssh:
+        mode: 0700
 #     - ~/downloads
 #     - ~/.vim/undo-history
 
