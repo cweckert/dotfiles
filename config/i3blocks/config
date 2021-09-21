@@ -12,21 +12,23 @@ color=#f8f8f2
 separator_block_width=15
 markup=pango
 
+HOME=/home/chris/.i3/i3scripts
+
 [kbdd_layout]
-command=/home/chris/.i3/i3scripts/kbdd_layout/kbdd_layout
+command=$HOME/kbdd_layout/kbdd_layout
 interval=persist
 
 [battery2]
-command=/home/chris/.i3/i3scripts/battery2/battery2
+command=$HOME/battery2/battery2
 markup=pango
 interval=30
 
 [kubernetes]
-command=/home/chris/.i3/i3scripts/kubernetes/kubernetes
+command=$HOME/kubernetes/kubernetes
 interval=10
 
 [volume-pulseaudio]
-command=/home/chris/.i3/i3scripts/volume-pulseaudio/volume-pulseaudio
+command=$HOME/volume-pulseaudio/volume-pulseaudio
 interval=once
 signal=1
 #MIXER=[determined automatically]
@@ -46,6 +48,16 @@ signal=1
 #USE_DESCRIPTION=0
 ## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
 #SUBSCRIBE=0
+
+[lan-dock]
+command=$HOME/iface/iface
+LABEL=lan-dock:
+IFACE=enx0050b6eda655
+#ADDRESS_FAMILY=inet6?
+color=#00FF00
+interval=10
+# set this to 1 to display the name of the connected WIFI interface instead of the IP address.
+display_wifi_name=0
 
 [wifi]
 command=iwgetid -r | tr '\n' ' ' && grep $(iwgetid -m | awk '{ printf "%s", $1 }') /proc/net/wireless | awk '{ printf "%i%\n", int($3 * 100 / 70) }'
@@ -79,7 +91,7 @@ border_bottom=0
 border_left=0
 
 [cpu_stats]
-command=/home/chris/.i3/i3scripts/cpu_usage/cpu_usage
+command=$HOME/cpu_usage/cpu_usage
 interval=10
 label=<span color="#ff5555"><b>CPU: </b></span>
 border=#ff5555
@@ -119,5 +131,5 @@ border_bottom=0
 border_left=0
 
 [rofi-calendar]
-command=/home/chris/.i3/i3scripts/rofi-calendar/rofi-calendar
+command=$HOME/rofi-calendar/rofi-calendar
 interval=3600

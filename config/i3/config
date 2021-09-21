@@ -200,7 +200,7 @@ bar {
     position bottom
     status_command i3blocks
     strip_workspace_numbers yes
-    tray_output nonprimary
+    tray_output primary
 
     colors {
         background #282A36
@@ -214,13 +214,6 @@ bar {
         binding_mode       #FF5555 #FF5555 #F8F8F2
     }
 }
-
-# bar {
-# 				
-#         status_command i3status --config ~/.config/i3/i3status.conf # | \
-# 											 # dzen2 -w 2175 -dock -fn \
-# 											 # "xft:FuraCode Nerd Font-Light:pixelsize=18:antialias=true:hinting=true"
-# }
 
 bindsym $mod+p exec ~/.config/i3/bin/logout
 exec --no-startup-id "setxkbmap -layout us,de -option 'grp:ctrl_alt_toggle'"
