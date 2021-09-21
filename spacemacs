@@ -58,6 +58,7 @@ This function should only modify configuration layer settings."
      kubernetes
      prettier
      ranger
+     shell
      tmux
      lsp
      web-beautify
