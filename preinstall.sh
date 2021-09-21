@@ -22,6 +22,20 @@ chmod +x kubectl
 mkdir -p ~/.local/bin/kubectl
 mv ./kubectl ~/.local/bin/kubectl
 
+# Install Fira Code Font
+font_dir="$HOME/.local/share/fonts"
+if [ ! -d "$font_dir/FiraCode"]; then
+    echo "Installing Fira Code"
+    mkdir -p $font_dir
+
+    FIRACODE="Fira_Code_v5.2.zip"
+    curl -LO -s https://github.com/tonsky/FiraCode/releases/download/5.2/$FIRACODE
+    unzip $FIRACODE -d $font_dir/FiraCode
+    rm $FIRACODE
+else
+    echo "FiraCode was already installed"
+fi
+
 # Check if oh-my-zsh is installed
 OMZDIR="$HOME/.oh-my-zsh"
 if [ ! -d "$OMZDIR" ]; then
