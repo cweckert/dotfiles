@@ -1,5 +1,6 @@
 #!/bin/bash
-
+sudo add-apt-repository ppa:regolith-linux/release
+sudo apt update
 sudo apt install -y curl vim zsh tmux emacs i3-gaps i3blocks rofi pavucontrol jq evolution kubectx
 
 RUSTDIR="$HOME/.rustup"
