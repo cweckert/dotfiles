@@ -18,15 +18,17 @@ else
     echo 'NVM already installed'
 fi
 
-echo 'Install latest kubectl'
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-chmod +x kubectl
-mkdir -p ~/.local/bin/
-mv ./kubectl ~/.local/bin/
+if [ ! -f "$HOME/.local/bin/kubectl" ]; then
+    echo 'Install latest kubectl'
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    chmod +x kubectl
+    mkdir -p ~/.local/bin/
+    mv ./kubectl ~/.local/bin/
+fi
 
 # Install Fira Code Font
 font_dir="$HOME/.local/share/fonts"
-if [ ! -d "$font_dir/FiraCode"]; then
+if [ ! -d "$font_dir/FiraCode" ]; then
     echo "Installing Fira Code"
     mkdir -p $font_dir
 
