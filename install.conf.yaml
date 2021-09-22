@@ -1,26 +1,13 @@
+- clean: ['~']
+  
 - defaults:
     link:
       relink: true
 
-- clean: ['~']
-
-- link:
-    ~/.config/:
-      glob: true
-      path: config/*
-    ~/.emacs.d/:
-      glob: true
-      path: emacs.d/*
-    ~/.i3/:
-      glob: true
-      path: i3/*
-    ~/.spacemacs: spacemacs
-    ~/.tmux.conf: tmux.conf
-    ~/.zshrc: zshrc
-
 - create:
-    - ~/.ssh:
-        mode: 0700
+  ~/.ssh:
+    mode: 0700
+  ~/.emacs.d:
 #     - ~/downloads
 #     - ~/.vim/undo-history
 
@@ -32,4 +19,19 @@
   - [sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3]
   # install alacritty
   - [cargo install alacritty]
-  - [sudo apt install -y zsh tmux emacs i3-gaps i3blocks rofi pavucontrol jq evolution kubectx ]
+  
+- link:
+    ~/.config/:
+      glob: true
+      path: config/*
+    ~/.emacs.d/:
+      create: true
+      glob: true
+      path: emacs.d/*
+    ~/.i3/:
+      create: true
+      glob: true
+      path: i3/**
+    ~/.spacemacs: spacemacs
+    ~/.tmux.conf: tmux.conf
+    ~/.zshrc: zshrc

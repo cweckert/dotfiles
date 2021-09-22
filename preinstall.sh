@@ -1,9 +1,11 @@
 #!/bin/bash
 
+sudo apt install -y curl vim zsh tmux emacs i3-gaps i3blocks rofi pavucontrol jq evolution kubectx
+
 RUSTDIR="$HOME/.rustup"
 if [ ! -d "$RUSTDIR" ]; then
     echo 'Installing rustup'
-    /bin/sh -c "$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs)"
+    /bin/sh -c "$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs)" -s -- -y
 else
     echo 'Rustup already installed'
 fi
@@ -19,8 +21,8 @@ fi
 echo 'Install latest kubectl'
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
-mkdir -p ~/.local/bin/kubectl
-mv ./kubectl ~/.local/bin/kubectl
+mkdir -p ~/.local/bin/
+mv ./kubectl ~/.local/bin/
 
 # Install Fira Code Font
 font_dir="$HOME/.local/share/fonts"
