@@ -4,12 +4,6 @@
     link:
       relink: true
 
-- create:
-  ~/.ssh:
-    mode: 0700
-#     - ~/downloads
-#     - ~/.vim/undo-history
-
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [sh preinstall.sh, Installing Prerequisites]
@@ -19,6 +13,12 @@
   # install alacritty
   - [cargo install alacritty]
   
+- create:
+  ~/.ssh:
+    mode: 0700
+#     - ~/downloads
+#     - ~/.vim/undo-history
+
 - link:
     ~/.config/:
       glob: true
