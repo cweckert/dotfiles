@@ -7,7 +7,6 @@
 - create:
   ~/.ssh:
     mode: 0700
-  ~/.emacs.d:
 #     - ~/downloads
 #     - ~/.vim/undo-history
 
